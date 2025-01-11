@@ -1,9 +1,14 @@
 package com.clinicManagement.ClinicManagement.CORS;
 
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.Arrays;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -16,5 +21,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*") // Các header được phép
                 .allowCredentials(true); // Cho phép gửi cookie
     }
+
 }
 
