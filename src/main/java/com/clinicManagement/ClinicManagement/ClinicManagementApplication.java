@@ -1,7 +1,9 @@
 package com.clinicManagement.ClinicManagement;
 
+import com.clinicManagement.ClinicManagement.model.MedicalRecord;
 import com.clinicManagement.ClinicManagement.model.User;
 import com.clinicManagement.ClinicManagement.repository.UserRepository;
+import com.clinicManagement.ClinicManagement.service.MedicalRecordService;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,28 +17,6 @@ public class ClinicManagementApplication {
 		 SpringApplication.run(ClinicManagementApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner( UserRepository repo) {
-		return runner -> {
-			getUserById(repo);
-		};
-	}
 
-	private void getUserById(UserRepository repo) {
-		User user = repo.findById(1l).orElseThrow(() -> new RuntimeException("User does not exist"));
-		System.out.println(user.getUserId());
-		System.out.println(user.getEmail());
-	}
-//	@Bean
-//	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
-//		return runner -> {
-////			createCourseAndStudent(appDAO);
-////			findCourseAndStudents(appDAO);
-////			findStudentAndCoursesById(appDAO);
-////			addMoreCoursesForStudent(appDAO);
-////			deleteCourse(appDAO);
-//			deleteStudent(appDAO);
-//		};
-//	}
 
 }

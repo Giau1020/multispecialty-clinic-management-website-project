@@ -23,14 +23,14 @@ public class MedicalRecord {
     private Long recordId;
 
     // Mối quan hệ Nhiều-Một với User (Patient)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patient_id", nullable = false)
     private User patient;
 
     // Mối quan hệ Nhiều-Một với User (Doctor)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doctor_id", nullable = false)
-    private User doctor;
+    private Doctor doctor;
 
 //    // Mối quan hệ Nhiều-Một với Appointment
 //    @OneToOne(fetch = FetchType.LAZY)

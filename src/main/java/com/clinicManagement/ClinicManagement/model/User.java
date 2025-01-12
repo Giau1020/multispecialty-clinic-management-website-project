@@ -82,6 +82,11 @@ public class User {
     @JsonBackReference
     private List<Appointment> patientAppointments = new ArrayList<>();
 
+    // Quan hệ One-to-Many: Là bệnh nhân trong nhiều cuộc hẹn
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonBackReference
+    private List<MedicalRecord> patientMedicalRecords = new ArrayList<>();
+
 
 
 
