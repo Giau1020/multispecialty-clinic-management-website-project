@@ -39,4 +39,10 @@ public class DepartmentController {
     public ResponseEntity<?> getAllDepartment(){
         return ResponseEntity.ok(departmentService.getAllDepartment());
     }
+
+    //Hàm hiển thị thông tin department theo id
+    @GetMapping("/search/{id}")
+    public ResponseEntity<?> getDepartmentById(@PathVariable Long id){
+        return ResponseEntity.ok(departmentService.getDepartmentById(id));
+    }
 }

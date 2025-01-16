@@ -67,9 +67,9 @@ public class User {
     private Set<UserRole> userRoles;
 
 
-    // Mối quan hệ nhiều-nhiều với Schedule thông qua bảng phụ User_Schedules
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<UserSchedule> userSchedules = new HashSet<>();
+//    // Mối quan hệ nhiều-nhiều với Schedule thông qua bảng phụ User_Schedules
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<UserSchedule> userSchedules = new HashSet<>();
 
 
     // Quan hệ One-to-Many: Là bác sĩ trong nhiều cuộc hẹn
@@ -87,7 +87,8 @@ public class User {
     @JsonBackReference
     private List<MedicalRecord> patientMedicalRecords = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetailSchedule> detailSchedules = new ArrayList<>();
 
 
 

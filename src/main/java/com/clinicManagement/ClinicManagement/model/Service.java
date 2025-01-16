@@ -4,6 +4,7 @@ package com.clinicManagement.ClinicManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,7 +24,7 @@ import java.util.Set;
 public class Service {
 
     @Id
-  //  @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_id")
     private Long serviceId;
 
@@ -41,6 +42,7 @@ public class Service {
 
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
+    @JsonIgnoreProperties("services")
     private Department department;
 
     //MQH với bảng Appointment qua bảng AppointmentService
