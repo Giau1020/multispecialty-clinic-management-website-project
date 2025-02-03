@@ -4,6 +4,8 @@ package com.clinicManagement.ClinicManagement.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Notifications")
@@ -18,23 +20,23 @@ public class Notification {
     @Column(name = "notification_id")
     private Long notificationId;
 
-    // Mối quan hệ Nhiều-Một với User
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+
 
     @Column(name = "notification_type", nullable = false, length = 50)
-    @Enumerated(EnumType.STRING)
-    private NotificationType notificationType;
+    private String notificationType;
 
     @Column(name = "message", nullable = false, columnDefinition = "TEXT")
     private String message;
 
-    @Column(name = "is_read", nullable = false)
-    private Boolean isRead = false;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @OneToMany(mappedBy = "notification", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NotificationRecipients> notificationsRecipients = new ArrayList<>();
 
     @PrePersist
     protected void onCreate() {

@@ -2,6 +2,7 @@ package com.clinicManagement.ClinicManagement.model;
 // src/main/java/com/example/clinic/model/ChatConversation.java
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -24,6 +25,7 @@ public class ChatConversation {
     // Mối quan hệ Nhiều-Một với User
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     @Column(name = "started_at", nullable = false, updatable = false)
