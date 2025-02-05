@@ -8,7 +8,7 @@
 
 body {
     overflow-x: hidden;
-    background: #F5FFFA;
+    background: #F4f5f7;
 
     height: 100vh;           /* Chiều cao của body bằng với chiều cao của cửa sổ trình duyệt */
     margin: 0 ;               /* Loại bỏ margin mặc định của body */
@@ -23,7 +23,9 @@ div.head-session{
     width: 100vw;
     height: 75%;
     /* background-image: linear-gradient(to bottom, #fff, #f5f5dc); */
-    background-image: linear-gradient(to bottom, #fff, #8cc6eb);
+    /* background-image: linear-gradient(to bottom, #fff, #8cc6eb); */
+    
+
 
 
 }
@@ -52,10 +54,10 @@ nav {
 }
 
 .nav-left .logo img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     margin-right: 20px; /* Khoảng cách giữa logo và menu */
-    border-radius: 50%; /* Hình tròn cho logo */
+    /* border-radius: 50%; Hình tròn cho logo */
 }
 
 .nav-left ul {
@@ -126,32 +128,31 @@ hr{
 
 /* PHẦN BANNER */
 .banner{
-   
-    /* position: absolute; */
-    margin: 2% 10vw;
     display: flex;
+    padding-left: 15vw;
     flex-direction: row;
     justify-content: space-between;
-    /* gap: 10px; */
-    width: 80%;
-    max-width: 1200px;
-    padding: 30px;
-    border-radius: 15px;
+    width: 100%;
+    height: 70%;
     overflow: hidden;
+    background-image: url(../images/banner3.png);
+    background-size: 100% 100%;
+    flex-wrap: wrap;
 }
 
 .banner-infor {
-    align-self: center;
+    /* align-self: center; */
     width: 50%;
-    align-items: center;
-    text-align: center;
+    margin-top: 5%;
+    /* align-items: center; */
+    /* text-align: center;   */
 }
 
 
 .banner-infor h1 {
     font-size: 2.8rem;
     color: #333;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     font-weight: bold;
 }
 
@@ -166,13 +167,13 @@ hr{
 
 .btn-get-started {
     background-color: #003399;
-    margin-top: 20px;
+    margin-top: 10px;
     color: white;
     border: none;
     padding: 12px 30px;
     font-size: 1.1rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50px;
     transition: background-color 0.3s ease;
 }
 
@@ -180,58 +181,126 @@ hr{
     background-color: #1263b9;
 }
 
-.doctor-image {
-    /* border-radius: 50%; */
-    width: 50%;
-    height: 57.5vh;
-    object-fit: cover;
+.cta-banner{
+    width: 63%;
+    /* height: 20%; */
+    max-height: 100%;
+    height: auto;
+    position: absolute;
+    margin-top: 2% ;
+    border-radius: 15px;
+    padding: 2% 2%;
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Bóng đổ xuống và sang phải */
+
 }
+.cta-banner a{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 5%;
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+    
+}
+.cta-banner a:not(:last-child) {
+    border-right: 2px solid #ddd; /* Độ dày và màu của đường gạch */
+    padding-right: 20px;
+}
+.cta-infor{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cta-name{
+    font-weight: 700;
+    font-size: 20px;
+}
+.cta-icon img{
+    width: 40px;
+    height: 40px;
+}
+
 
 /* PHẦN MAIN SESSION */
 /* PHẦN MORE INFORMATION */
 .main-session{
     display: flex;
-    background: #F5FFFA;
+    background: #F4f5f7;
     flex-direction: column;
     width: inherit;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    text-align: center;
-    margin:  4% 0;
+    /* text-align: center; */
+    margin:  3% 0;
 }
 .about-us{
-    background: #F5FFFA;
+    background: #F4f5f7;
     max-width: 75%;
-    height: 50vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 }
-.features {
-    margin: 5% 0;
+.about-us h1, .healthcare-services-content h1, .specialties-content h1, .specialties-content p{
+    text-align: left;
+    margin-left: 3%;
+}
+.about-us h1::after, .healthcare-services-content h1::after, .specialties-content h1::after{ 
+    content: "";  /* Bắt buộc phải có để hiển thị */
+    display: block;
+    width: 10%; /* Độ dài của đường gạch */
+    height: 4px; /* Độ dày của đường gạch */
+    background-color: #007bff; /* Màu xanh (hoặc thay bằng màu bạn muốn) */
+    margin-top: 8px;
+}
+.img-about img{
+    margin-left: 10px;
+    margin-top: 15%;
+    width: 100%;
+    height: 75%;
+}
+.about-us-content{
     display: flex;
-    cursor: pointer;
-    justify-content: space-between;
-    text-align: center;
+    flex-direction: row;
+    gap: 15px;
 }
+
+.features {
+    width: 60%;
+    margin-left: 50px;
+    padding-top: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Tạo 2 cột có độ rộng bằng nhau */
+    grid-gap: 30px;  /* Khoảng cách giữa các cột và hàng */
+}
+
 .feature {
-    flex: 1;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    text-align: left;
 }
+
 .feature img {
-    width: 50px;
+    width: 50px;  /* Đặt kích thước ảnh (có thể điều chỉnh) */
     height: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;  /* Khoảng cách giữa ảnh và văn bản */
 }
+
+.features .feature:nth-child(3) {
+    grid-row: span 2;  /* Cột thứ 2 chiếm 2 hàng */
+}
+
 .feature h3 {
     font-size: 1.2rem;
-    color: #333;
+    color: #003399;
     margin-bottom: 10px;
 }
 .feature p {
@@ -242,42 +311,67 @@ hr{
 
 /* PHẦN COVENIENT SERVICES */
 .convenient-healthcare-services {
-    text-align: center;
-    width: 80%;
+    /* text-align: center; */
+    width: 100%;
     height: 50vh;
-    /* max-width: 1200px; */
     justify-content: center;
     align-items: center;
+    align-content: center;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     font-family: 'Open Sans', sans-serif;
 }
-.services {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 4%;
-    
-}
-.service {
-    flex: 1;
+.healthcare-services-content{
+    width: 80%;
+    margin: auto;  
+    max-width: 1200px;
     padding: 20px;
     text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dịch vụ tự động xuống dòng khi không đủ không gian */
+    gap: 30px;
+    justify-items: center; /* Canh giữa các phần tử trong grid */
+}
+
+.service {
+    background-color: #ffffff; /* Màu nền trắng */
+    /* border-radius: 10px; Góc bo tròn */
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Đổ bóng cho các dịch vụ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.service:hover {
+    transform: translateY(-10px); /* Tạo hiệu ứng nâng lên khi hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Tăng bóng khi hover */
     cursor: pointer;
+    border-radius: 10px;
 }
-.service:hover{
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-}
+
 .service img {
     width: 80px;
     height: 80px;
-    margin-bottom: 10px;
+    /* borsder-radius: 50%; Bo tròn ảnh */
+    margin-bottom: 20px;
 }
+
 .service h3 {
-    font-size: 1.2rem;
-    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #003399;
+    margin-top: 0;
 }
 
 
@@ -288,9 +382,10 @@ hr{
     width: 100%;
     height: 50vh;
     /* max-width: 1200px; */
-    background: #fff;
+    background: white;
     padding: 30px;
     border-radius: 10px;
+    
     /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
     /* background-image: linear-gradient(to bottom, #fff, #bcddf1); */
 }
@@ -299,13 +394,21 @@ hr{
     color: #333;
     margin-bottom: 10px;
 }
+.specialties-content{
+    width: 80%;
+    margin: auto;  
+    /* max-width: 1200px; */
+    padding: 20px;
+    text-align: center;
+}
 .specialties-container p {
+    text-align: left;
     font-size: 1rem;
     color: #666;
     margin-bottom: 20px;
 }
 .specialties {
-    width: 80%;
+    /* width: 80%; */
     margin-top: 3%;
     display: flex;
     flex-wrap: wrap;
@@ -326,59 +429,6 @@ hr{
     color: #0056b3;
 }
 
-/* PHẦN CÂU HỎI THƯỜNG GẶP */
-.faq-container {
-    display: flex;
-    height: 60vh;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    
-    padding: 30px;
-    border-radius: 10px;
-}
-.faq-image {
-    flex: 1;
-    text-align: center;
-}
-.faq-image img {
-    width: 250px;
-    border-radius: 10px;
-}
-.faq-content {
-    flex: 2;
-    padding-left: 30px;
-}
-.faq-content h1 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-.faq-content p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-.faq-item {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-}
-.faq-item h3 {
-    font-size: 1.2rem;
-    color: #0056b3;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.faq-item p {
-    font-size: 1rem;
-    color: #666;
-    display: none;
-    padding-top: 5px;
-}
-
 
 
 
@@ -387,7 +437,10 @@ footer {
     width: 100%;
 
     /* background: linear-gradient(to right, #4776e6, #8e54e9); */
-    background-color: white;
+    /* background-color: white; */
+    background: linear-gradient(to bottom, #f4f5f7, #add8e6);
+ /* Gradient từ xám sang xanh dương nhẹ */
+
     justify-items: center;
     align-items: center;
 
