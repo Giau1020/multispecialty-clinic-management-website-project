@@ -64,7 +64,7 @@ public class User {
     // Mối quan hệ Many-to-Many với Role thông qua UserRole
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private Set<UserRole> userRoles;
+    private List<UserRole> userRoles;
 
 
 //    // Mối quan hệ nhiều-nhiều với Schedule thông qua bảng phụ User_Schedules

@@ -23,6 +23,7 @@ public class DepartmentService {
         Department department = Department.builder()
                 .name(departmentDTO.getName())
                 .description(departmentDTO.getDescription())
+                .url(departmentDTO.getUrl())
                 .services(null).build();
         return departmentRepository.save(department);
     }

@@ -9,6 +9,8 @@ import com.clinicManagement.ClinicManagement.repository.UserRoleRepository;
 import com.clinicManagement.ClinicManagement.request.UserAddressRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -26,15 +28,19 @@ public class UserService {
     @Autowired
     private AddressRepository addressRepository;
 
+    private BCryptPasswordEncoder encoder=new BCryptPasswordEncoder(12);
+
+
     @Autowired
     private RoleRepository roleRepository;
     // Hàm thêm mới User (role = 'staff', 'patient', 'doctor') // User patient
     @Transactional
+    @Async
     public void createUser(UserAddressRequest user, String strRole){
         User newUser = User.builder()
                 .username(user.getUsername())
                 .email(user.getEmail())
-                .passwordHash(user.getPasswordHash())
+                .passwordHash(encoder.encode(user.getPasswordHash()))
                 .phoneNumber(user.getPhoneNumber())
                 .fullName(user.getFullName())
                 .dateOfBirth(user.getDateOfBirth())
@@ -168,6 +174,14 @@ public class UserService {
 
         // Nếu không tìm thấy, ném ngoại lệ
         throw new RuntimeException("User not found");
+    }
+
+
+    public User saveUser(User user) {
+        user.setPasswordHash(encoder.encode(user.getPasswordHash()));
+        System.out.println(user.getPasswordHash());
+        return userRepository.save(user) ;
+
     }
 
 }

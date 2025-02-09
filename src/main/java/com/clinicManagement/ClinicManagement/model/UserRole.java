@@ -21,12 +21,12 @@ public class UserRole {
     @EmbeddedId
     private UserRoleId userRoleId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("roleId")
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("userId")
     @JoinColumn(name = "user_id")
     @JsonBackReference
@@ -38,5 +38,13 @@ public class UserRole {
     @PrePersist
     protected void onAssign() {
         this.assignedAt = LocalDateTime.now();
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

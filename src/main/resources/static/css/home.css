@@ -92,11 +92,12 @@ nav {
 
 }
 
-.nav-right p {
+.nav-right p:not(.childDiv p) {
     font-size: 14px;
     color: #666;
     margin: 0;
     margin-right: 5vw;
+    text-align: center;
 }
 
 .nav-right .btn-login {
@@ -380,7 +381,7 @@ h1 {
     text-align: center;
    justify-items: center;
     width: 100%;
-    height: 50vh;
+    height:fit-content;
     /* max-width: 1200px; */
     background: white;
     padding: 30px;
@@ -411,13 +412,18 @@ h1 {
     /* width: 80%; */
     margin-top: 3%;
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     justify-content: center;
     gap: 70px;
 }
 .specialty {
-    width: 150px;
+    width: fit-content;
+    cursor: pointer;
     text-align: center;
+    border-radius: 5%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.09);
+    padding: 15px 15px;
 }
 .specialty img {
     width: 80px;
@@ -499,3 +505,92 @@ footer {
     text-decoration: underline;
 }
   
+.childDiv {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    margin-top: 20px; /* Khoảng cách giữa các div */
+    text-align: center; /* Căn giữa nội dung */
+    background-color: #f9f9f9; /* Màu nền cho div */
+    border-radius: 10px; /* Bo tròn góc div */
+}
+
+/* CSS cho hình ảnh */
+.childDiv img {
+    width: 50px; /* Chiều rộng của hình ảnh */
+    height:50px; /* Chiều cao của hình ảnh */
+    margin-bottom: 10px; /* Khoảng cách giữa hình ảnh và đoạn văn */
+}
+
+/* CSS cho thẻ p */
+.childDiv p {
+    align-self: center;
+    font-size: 16px; /* Kích thước font chữ */
+    color: #333; /* Màu chữ */
+    font-family: Arial, sans-serif; /* Font chữ */
+}
+
+
+
+/* DROPDOWNS */
+.dropdown-specialty {
+    display: none;
+    position: absolute;
+    top: 11%;
+    width: fit-content  ;
+    left: 20%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1002;
+}
+.dropdown-specialty ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.dropdown-specialty ul li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+}
+.dropdown-specialty ul li:last-child {
+    border-bottom: none;
+}
+.dropdown-specialty ul li:hover {
+    background-color: #f1f1f1;
+}
+.dropdown-specialty ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.dropdown-specialty::before {
+    content: "";
+    position: absolute;
+    top: -10px; /* Dịch lên trên */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white; /* Màu tam giác giống nền dropdown */
+}
+.dropdown-specialty::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid rgba(0, 0, 0, 0.1); /* Màu bóng đổ */
+}

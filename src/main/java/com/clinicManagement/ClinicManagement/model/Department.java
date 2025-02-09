@@ -30,6 +30,9 @@ public class Department {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "url", nullable = true)
+    private String url;
+
     // Mối quan hệ một-nhiều với ServiceEntity
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("department")

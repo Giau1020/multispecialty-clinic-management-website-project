@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/register.css" type="text/css">
+  <title>Đăng ký</title>
+</head>
+<body>
+  <div class="register-container">
+    <!-- Logo và tiêu đề -->
+    <div class="img-logo" onclick="forwardTo('home.html')">
+      <img src="../images/logo.png" alt="G-Clinic">
+      <h2>Đăng ký</h2>
+    </div>
+
+    <!-- Form đăng ký -->
+    <form id="registerForm">
+      <div class="input-group">
+        <input type="text" id="fullName" placeholder="Họ và tên" required>
+      </div>
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <input type="tel" id="phoneNumber" placeholder="Số điện thoại" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Mật khẩu" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+      </div>
+      <div class="error-pass">Xác nhận mật khẩu không đúng!</div>
+      
+  
+
+      <!-- Nút đăng ký -->
+      <button type="button" onclick="register();" class="register-btn">Đăng ký</button>
+    </form>
+
+    <!-- Link chuyển hướng đến trang đăng nhập nếu đã có tài khoản -->
+    <div class="login-link">
+      Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+    </div>
+  </div>
+
+  <!-- File JavaScript xử lý đăng ký (nếu cần) -->
+  <script src="../js/register.js"></script>
+</body>
+</html>

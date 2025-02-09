@@ -11,4 +11,5 @@ import lombok.NonNull;
 public class DepartmentDTO {
     private String name;
     private String description;
+    private String url;
 }
